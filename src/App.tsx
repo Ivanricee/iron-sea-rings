@@ -10,10 +10,7 @@ import CompoundDomeCollider from './components/CompounDomeCollider'
   const gltf = useGLTF('/modelos/Untitled.glb')
   return <primitive object={gltf.scene} scale={1} position={[0, 0, 0]} />
 }*/
-/*function ModelRef() {
-  const gltf = useGLTF('/modelos/ref-walldome.glb')
-  return <primitive object={gltf.scene} scale={1} position={[0, 0, 0]} />
-}*/
+
 function App() {
   const [metrics, setMetrics] = useState<{
     drawCalls?: number
@@ -26,7 +23,7 @@ function App() {
   return (
     <main className="grid h-screen overflow-hidden" style={{ gridTemplateRows: 'auto 1fr' }}>
       <header>
-        <h1>Utis toss game</h1>
+        <h1>Iron Sea Rings</h1>
 
         <div
           style={{
