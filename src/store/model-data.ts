@@ -2,19 +2,19 @@ import type { WallDataType } from '../components/colliders/CompounCollider'
 import type { WingsWallData } from '../components/colliders/CompundWings'
 
 export const ARROW_DATA = {
-  punta_1: {
+  /* punta_1: {
     position: [-0.4811115711927414, 2.539, -0.003435778431594372],
     scale: [0.02, 0.04235, 0.02],
     rotation: [0.0, 0.0, 0.0],
   },
-  punta_2: {
+    punta_2: {
     position: [-0.4811115711927414, 2.45316743850708, -0.003435778431594372],
     scale: [0.04323711121082306, 0.026251633644104004, 0.02602966409176588],
     rotation: [3.144, 0.0, 0.0],
-  },
+  },*/
   stick: {
-    position: [-0.4814010262489319, 2.27570378780365, -0.0036017221864312887],
-    scale: [0.010793238878250122, 0.17397058010101318, 0.010793262394145131],
+    position: [-0.4814010262489319, 2.357, -0.0036017221864312887],
+    scale: [0.010793238878250122, 0.225, 0.010793262394145131],
     rotation: [0.0, 0.0, 0.0],
   },
   tail_1: {
@@ -111,6 +111,7 @@ export const DOME_WALL_DATA: WallDataType = [
     args: [0.3486, 0.8793, 0.075],
   },
   {
+    //base
     position: [-0.474, 1.03, -0],
     rotation: [0, 1.5706, 0],
     args: [0.62, 0.075, 0.32],
