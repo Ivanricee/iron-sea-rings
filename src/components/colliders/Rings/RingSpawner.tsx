@@ -64,12 +64,12 @@ export function RingSpawner({
   onRefsReady,
   ringsPerStack = 4,
   stackSpacing = 0,
-  spawnDelay = 200,
+  spawnDelay = 600,
   resetKey = 0,
-  sphereCount = 9,
-  overlapFactor = 0.91,
+  sphereCount = 12,
+  overlapFactor = 0.9,
   restitution = 0.2, //rebote
-  friction = 0.8,
+  friction = 0.5,
 }: RingSpawnerProps) {
   const { nodes } = useGLTF('/modelos/RING.glb')
   const rigidBodyRefs = useRef<RapierRigidBody[]>([] as RapierRigidBody[])
@@ -109,7 +109,6 @@ export function RingSpawner({
     const timeouts: ReturnType<typeof setTimeout>[] = []
 
     allPositions.forEach((_, i) => {
-      // Dentro de cada stack el delay es escalonado
       // Los 3 stacks spawnan en paralelo — el delay es por posición dentro del stack
       const positionInStack = i % ringsPerStack
       const delay = positionInStack * spawnDelay
@@ -149,18 +148,16 @@ export function RingSpawner({
       )}
       {/*POLE_CONFIGS.map((config) => (
         <group key={`debug-pole-${config.id}`}>
-          {// 1. Cilindro Rosa: Muestra dónde está el palo visualmente
+          {
+            // show where the stick is visually
           }
           <mesh position={config.stickPosition} scale={config.stickScale}>
-            {// Usamos cylinderGeometry básico, la escala lo ajustará a tu forma
-            }
             <cylinderGeometry args={[0.5, 0.5, 1, 8]} />
             <meshBasicMaterial color="hotpink" transparent opacity={0.4} wireframe />
           </mesh>
 
-
           {
-          // 2. Esfera Amarilla: Muestra EXACTAMENTE dónde calculamos que está la cima (topY)
+            // shows exactly where is the top of the stick
           }
           <mesh position={[config.stickPosition[0], config.topY, config.stickPosition[2]]}>
             <sphereGeometry args={[0.05]} />
@@ -168,7 +165,7 @@ export function RingSpawner({
           </mesh>
 
           {
-          // Opcional: Círculo en el suelo mostrando el radio de atracción
+            // shows the radius of attraction
           }
           <mesh rotation={[-Math.PI / 2, 0, 0]} position={config.basePosition}>
             <ringGeometry args={[config.radius - 0.01, config.radius, 32]} />
